@@ -8,11 +8,3 @@ Repassem tots els **conceptes i situacions** treballats fins ara sobre sostenibi
 
 ---
 
-## 🎯 Objectius específics de la tasca / Finalitat
-
-Cal tenir clars els següents aspectes per poder seguir avançant:
-
-- **Desenvolupament vs Desenvolupament Sostenible**  
-- **ODS (Objectius de Desenvolupament Sostenible) – Agenda 2030**  
-- **De ODS a ASG (Ambiental, Social i Governança)**  
-
