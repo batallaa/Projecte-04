@@ -29,7 +29,7 @@ Les tasques que caldrà desenvolupar en aquest projecte són les següents:
 
 Els productes finals que s’avaluaran són els següents:
 
-- **P01**   -   [P01: GitHub. Treballant de forma col·laborativa: forks i pull request.](/Productes/p01) 🧑‍💻
-- **P02**   -   [P02: Presentació i Projecció de la Maqueta al Client](/Productes/p02) 📊
-- **P03**   -   [P03: Kanban del projecte](/Productes/p03) 📋
+- **P01**   –   [P01: GitHub. Treballant de forma col·laborativa: forks i pull request.](/Productes/p01) 🧑‍💻
+- **P02**   –   [P02: Presentació i Projecció de la Maqueta al Client](/Productes/p02) 📊
+- **P03**   –   [P03: Kanban del projecte](/Productes/p03) 📋
 
