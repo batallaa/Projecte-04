@@ -25,7 +25,7 @@ Les tasques que caldrà desenvolupar en aquest projecte són les següents:
 - **T15**   –   [T15: Com de circular és la meva família professional?](/Tasques/tasca15) 🔄👨‍👩‍👧‍👦
 
 
-## Productes finals a avaluar
+## 📦 Productes finals a avaluar
 
 Els productes finals que s’avaluaran són els següents:
 
