@@ -6,44 +6,55 @@ De forma individual, heu de donar resposta a les següents preguntes basant-se e
 
 ### **1. Què copiar? (Priorització): Quines són les dades més crítiques del servidor? Cal fer còpia dels 10 equips clients? Justifica-ho.**
 
-**Dades més crítiques del servidor:**
+#### **Dades més crítiques del servidor:**
 
-- Base de dades corporativa (informació de clients, facturació, inventari).
+- Base de dades corporativa (com la informació de clients, facturació, etc).
 - Fitxers de configuració del sistema i aplicacions.
-- Documents compartits essencials per a l’operativa (projectes, informes).
+- Documents compartits essencials com de projectes o informes.
 
-**Cal fer còpia dels 10 equips clients?**
+#### **Cal fer còpia dels 10 equips clients?**
 
-- Només si contenen dades úniques no centralitzades al servidor.
-- Si els equips només accedeixen a dades del servidor i no emmagatzemen informació crítica localment, no és necessari.
-- Si hi ha dades personals o treballs locals importants, sí que cal incloure’ls en el pla de còpia.
+Cal fer còpies si només si contenen dades úniques no centralitzades al servidor. Si els equips només accedeixen a dades del servidor i no emmagatzemen informació crítica localment, no és necessari. I si hi ha dades personals o treballs locals importants, sí que cal incloure’ls en el pla de còpia.
 
 ### **2. Periodicitat i Tipus de Còpia: Proposa un calendari bàsic per a la setmana (Diari/Setmanal/Mensual) i quin tipus de còpia aplicaràs (Completa, Diferencial, Incremental) per a les dades crítiques.**
 
-**Calendari bàsic per a la setmana:**
+#### **Calendari bàsic per a la setmana i justificació**
 
-- Diària: Còpia incremental de les dades crítiques (canvis des de l’última còpia).
-- Setmanal: Còpia diferencial (tots els canvis des de l’última còpia completa).
-- Mensual: Còpia completa del servidor i dades essencials.
 
-**Justificació:**
+- **Bases de Dades:** Incremental cada 4 hores + i una còpia completa diària.
 
-- Incremental diària redueix temps i espai.
-- Diferencial setmanal facilita restauració ràpida.
-- Completa mensual garanteix una imatge íntegra del sistema.
+- **Documents de Projectes:** Còpia completa setmanal i una incremental diària.
+
+- **Carpetes Personals:** Incremental diària i còpia completa setmanal.
+
+
+**Calendari bàsic:**
+
+- Diari: Incrementals per tot el servidor.
+- Setmanal: Completa del servidor.
+- Mensual: Completa per arxiu històric (retenció d’un mes).
 
 ### **3. Mitjans i Ubicació: Quin tipus de mitjà de còpia utilitzaries (Discs durs externs, NAS, Cloud, Cintes)? On s'hauria de guardar físicament la còpia més recent (Regla 3-2-1).**
 
-**Mitjans recomanats:**
+Guardaría en un NAS les còpies ràpides i de restauració inmediata. Les copies setmanals les guardaría en discos externs que es guardin fora de l'oficina i les còpies mensuals i redundància ho faría en un Cloud.
 
-- Primari: NAS (Network Attached Storage) per còpies ràpides i accessibles.
-- Secundari: Discs durs externs per còpies setmanals/mensuals.
-- Tercer: Cloud per còpia remota segura.
+**Regla 3-2-1:**
 
-**Ubicació física:**
+- 3 còpies de les dades (A l'oficina).
+- 2 tipus de mitjans diferents (A casa o un lloc extern).
+- 1 còpia fora de la ubicació principal (Als servidors d'algúna empresa que proporcioni Cloud).
 
-- 3 còpies de les dades.
-- 2 tipus de mitjans diferents (NAS + discs externs).
-- 1 còpia fora de la ubicació principal (Cloud).
+---
 
-La còpia més recent hauria d’estar al NAS dins la xarxa local per restauració immediata.
+## Fase 2: Treball per parelles
+
+### Elaboració d'una Proposta Unificada: Heu de consensuar i dissenyar el vostre propi Esquema 3-2-1 de Còpies (3 còpies, 2 mitjans, 1 fora de lloc) basat en els requisits del cas.
+
+
+| **Element**                | **Proposta de la Parella**                                                                 | **Justificació**                                                                 |
+|---------------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| **Dades Crítiques**       | - Bases de Dades Comptabilitat/Clients (20 GB)<br>- Documents de Projectes (300 GB)<br>- Carpetes Personals (100 GB) | La Base de Dades és la més crítica (ús diari i RTO/RPO estrictes). Documents i carpetes són importants però poden tenir RPO 24 h. |
+| **Periodicitat (BD)**     | Cada 4 hores                                                                             | Complim RPO de 4 h per BD crítica.                                             |
+| **Tipus de Còpia (BD)**   | Incremental + còpia completa diària                                                      | Incremental per reduir temps i espai; completa per seguretat.                  |
+| **Mitjà 1 (Local)**       | NAS o disc extern al servidor                                                            | Recuperació ràpida en cas d’avaria local.                                      |
+| **Mitjà 2 (Extern)**      | Núvol (AWS, Azure, Backblaze)                                                            | Protecció davant desastres físics (incendi, robatori).                         |
