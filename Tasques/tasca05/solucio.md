@@ -127,8 +127,11 @@ Per tenir el servidor OpenSSH hem d’anar a configuració, característiques op
 ![Captura 15](img/i15.png)
 ![Captura 16](img/i16.png)
 
+També podem instal·lar l'OpenSSH des del PowerShell, amb la seguent comanda:
+```
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+```
 ---
-
-
 
 
