@@ -215,7 +215,7 @@ A dins, anem a connexions i a configuració de LAN.
 ![Captura 28](img/i28.png)
 
 ---
-Anem a opcions avançades.
+Habilitem el servidor proxy, i després anem a opcions avançades.
 
 ![Captura 29](img/i29.png)
 
