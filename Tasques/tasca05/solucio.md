@@ -224,3 +224,10 @@ Posem l’IP local i el port amb el qual hem connectat el servei ssh.
 
 ![Captura 30](img/i30.png)
 
+---
+Comprovem els paquets en Wireshark.
+
+![Captura 31](img/i31.png)
+
+---
+
