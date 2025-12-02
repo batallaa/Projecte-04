@@ -93,6 +93,7 @@ Amb la comanda “ls .\.ssh\” mirarem dins del directori de la carpeta ssh els
 ls .\.ssh\
 ```
 ![Captura 11](img/i11.png)
+![Captura 12](img/i12.png)
 
 ---
 Dins de la carpeta ssh a la màquina del servidor, creem un arxiu.
@@ -101,7 +102,7 @@ Dins de la carpeta ssh a la màquina del servidor, creem un arxiu.
 touch .ssh/authorized_keys
 ```
 
-![Captura 12](img/i12.png)
+![Captura 13](img/i13.png)
 
 ---
 Copiem la clau que hem generat anteriorment a la carpeta ssh. 
@@ -110,7 +111,7 @@ Copiem la clau que hem generat anteriorment a la carpeta ssh.
 cat id_rsa.pub >> .ssh/authorized_keys
 ```
 
-![Captura 13](img/i13.png)
+![Captura 32](img/i32.png)
 
 ---
 Des de la màquina client, comprovem que podem fer ssh sense necessitat de la contrasenya.
