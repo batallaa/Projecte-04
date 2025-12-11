@@ -82,7 +82,7 @@ Verificarem que l’arxiu que volem copiar apareix i continuarem.
 
 ![Captura 19](img/i19.png)
 
-A opcions de restauració, indicarem que es sobreescriguin el text.
+A opcions de restauració, indicarem que es sobreescriuen el text.
 
 ![Captura 20](img/i20.png)
 
