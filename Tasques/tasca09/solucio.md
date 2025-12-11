@@ -42,7 +42,7 @@ Afegirem els dos usuaris.
 
 ![Captura 5](img/i5.png)
 
-I finalment afegim els usuaris al grups corresponents
+I finalment afegim els usuaris al grups corresponents.
 
 ![Captura 6](img/i6.png)
 
@@ -153,7 +153,7 @@ sudo chmod 755 /srv/nfs/admin_tools
 
 ![Captura 18](img/i18.png)
 
-***Prova 1***
+### Prova 1
 
 ```bash
 sudo nano /etc/exports
@@ -175,7 +175,7 @@ Exportem la configuració i la comprovem.
 sudo exportfs -v
 ```
 
-![Captura 19](img/i19.png)
+![Captura 20](img/i20.png)
 
 Instal·lem nfs a la màquina client.
 
@@ -183,7 +183,7 @@ Instal·lem nfs a la màquina client.
 sudo apt update && sudo apt install nfs-common -y
 ```
 
-![Captura 20](img/i20.png)
+![Captura 21](img/i21.png)
 
 Creem el punt de muntatge i muntem.
 
@@ -192,10 +192,14 @@ sudo mkdir -p /mnt/admin_tools
 sudo mount 192.168.56.105:/srv/nfs/admin_tools /mnt/admin_tools
 ```
 
-![Captura 21](img/i21.png)
+![Captura 22](img/i22.png)
+![Captura 23](img/i23.png)
+
 
 Creem un arxiu com a usuari root.
 
 ```bash
 sudo touch /mnt/admin_tools/testfile
 ```
+
+![Captura 24](img/i24.png)
