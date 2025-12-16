@@ -4,7 +4,7 @@
 
 Afegim un disc de 10 GB per poder fer la còpia de seguretat.
 
-![Captura 1](img/i01.png)
+![Captura 1](img/i001.png)
 
 Al entrar a la màquina ubuntu podem veure si tenim el disc de 10 GB correctament afegit fent la seguent comanda:
 
@@ -12,7 +12,7 @@ Al entrar a la màquina ubuntu podem veure si tenim el disc de 10 GB correctamen
 sudo fdisk -l
 ```
 
-![Captura 2](img/i02.png)
+![Captura 2](img/i002.png)
 
 ## Creació de la partició
 
@@ -22,7 +22,7 @@ Per poder crear la partició hem de crear una carpeta on guardar el backup, per 
 sudo mkdir /dev/sdb
 ```
 
-![Captura 3](img/i03.png)
+![Captura 3](img/i003.png)
 
 Al crear la partició especificarem la carpeta on volem crear la partició, i farem la seguent comanda:
 
@@ -30,13 +30,13 @@ Al crear la partició especificarem la carpeta on volem crear la partició, i fa
 sudo fdisk /dev/sdb
 ```
 
-![Captura 4](img/i04.png)
+![Captura 4](img/i004.png)
 
 ## Montar la partició
 
 Per montar la partició, primer de tot li haurem de donar un format xfs.
 
-![Captura 5](img/i05.png)
+![Captura 5](img/i005.png)
 
 Un cop fet això, hem de crear un punt de muntatge per la partició, per això primer crearem la carpeta /media/backup
 
@@ -45,7 +45,7 @@ sudo mkdir -p /media/backup
 sudo mount /dev/sdb1 /media/backup
 ```
 
-![Captura 6](img/i06.png)
+![Captura 6](img/i006.png)
 
 ## Procés d'instal·lació de Duplicity
 
@@ -55,7 +55,7 @@ Per instal·lar Duplicity que ens permetrà fer el backup, hem d'introduir la se
 sudo apt install duplicity
 ```
 
-![Captura 7](img/i07.png)
+![Captura 7](img/i007.png)
 
 ## Creació d'usuaris
 
@@ -66,7 +66,7 @@ sudo useradd -m -s /bin/bash user1
 sudo useradd -m -s /bin/bash user2
 ```
 
-![Captura 8](img/i08.png)
+![Captura 8](img/i008.png)
 
 Posarem contrasenya als nostres usuaris:
 
@@ -75,7 +75,7 @@ sudo passwd user1
 sudo passwd user2
 ```
 
-![Captura 9](img/i09.png)
+![Captura 9](img/i009.png)
 
 ## Creació d'arxius
 
@@ -88,7 +88,7 @@ sudo fallocate -l 10MB arxiu3
 sudo fallocate -l 10MB arxiu4
 ```
 
-![Captura 10](img/i10.png)
+![Captura 10](img/i010.png)
 
 ## Còpia definitiva
 
@@ -98,7 +98,7 @@ Farem una còpia de seguretat a la carpeta /home:
 sudo duplicity full /home/ file:///media/backup/
 ```
 
-![Captura 11](img/i11.png)
+![Captura 11](img/i011.png)
 
 Podem comprovar que s'han creat els arxius entrant a la carpeta de backups i fent ls:
 
@@ -107,7 +107,7 @@ cd /media/backup
 ls
 ```
 
-![Captura 12](img/i12.png)
+![Captura 12](img/i012.png)
 
 ## Dades
 
@@ -120,7 +120,7 @@ sudo rm arxiu3
 sudo rm arxiu4
 ```
 
-![Captura 13](img/i13.png)
+![Captura 13](img/i013.png)
 
 Després restaurem els arxius per provar si funciona:
 
@@ -128,7 +128,7 @@ Després restaurem els arxius per provar si funciona:
 sudo duplicity restore file:///media/backup/ /home/usuari
 ```
 
-![Captura 14](img/i14.png)
+![Captura 14](img/i014.png)
 
 ## Augmentar Backup
 
@@ -138,7 +138,7 @@ Afegirem un nou arxiu de 5MB per veure si la copia s'actualitza:
 sudo fallocate -l 5MB arxiu5
 ```
 
-![Captura 15](img/i15.png)
+![Captura 15](img/i015.png)
 
 I fem una còpia nova perquè detecti el nou arxiu creat anteriorment:
 
@@ -146,7 +146,7 @@ I fem una còpia nova perquè detecti el nou arxiu creat anteriorment:
 sudo duplicity /home/ file:///media/backup/
 ```
 
-![Captura 16](img/i16.png)
+![Captura 16](img/i016.png)
 
 ## Còpia automàtica
 
@@ -156,7 +156,7 @@ Desmuntem la còpia de /media/backup:
 sudo umount /media/backup
 ```
 
-![Captura 17](img/i17.png)
+![Captura 17](img/i017.png)
 
 Creem el script fullbackup.sh i introduim el seguent:
 
@@ -174,7 +174,7 @@ Donem permisos d'execució de l'arxiu:
 sudo chmod +x fullbackup.sh
 ```
 
-![Captura 18](img/i18.png)
+![Captura 18](img/i018.png)
 
 ## CRON
 
@@ -184,7 +184,7 @@ Programarem el CRON perquè es faci a les 23:00:
 sudo crontab -e
 ```
 
-![Captura 19](img/i19.png)
+![Captura 19](img/i019.png)
 
 ## Còpia automàtica incremental
 
@@ -204,7 +204,7 @@ Donem permisos d'execució amb:
 sudo chmod +x incrementalbackup.sh
 ```
 
-![Captura 20](img/i20.png)
+![Captura 20](img/i020.png)
 
 ## Programació del CRON
 
@@ -214,4 +214,4 @@ Programarem la còpia automàtica perquè es faci de dilluns a dissabte a les 23
 sudo crontab -e
 ```
 
-![Captura 21](img/i21.png)
+![Captura 21](img/i021.png)
