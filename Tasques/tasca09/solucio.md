@@ -203,3 +203,100 @@ sudo touch /mnt/admin_tools/testfile
 ```
 
 ![Captura 24](img/i24.png)
+
+## Problema de root_squash
+
+Quan intentem accedir a la carpeta `/mnt/admin_tools` no ens deixarà.  
+Això succeeix perquè en el **NFS** està habilitat el `root_squash`.  
+Això fa que el **root** a la màquina client sigui “nobody” i que no tingui permisos dins de cap grup o usuari.
+
+![Creació d’arxiu com root correcta](img/i28.png)
+
+Si provem de crear un arxiu a la carpeta de **admin01** des de **root**, no ens deixarà.
+
+![Reinici servei NFS](img/i29.png)
+
+Ara, si fem l’arxiu havent entrat a l’usuari **admin01**, podem comprovar que sí que ens deixa.
+
+![Desmuntatge i muntatge del recurs](img/i30.png)
+
+---
+
+## Solució de root_squash
+
+A recursos compartits, canviarem la línia de codi que hem introduït anteriorment per especificar que **no volem `root_squash`**.
+
+![Creació d’arxiu com root correcta](img/i31.png)
+
+Un cop fet això, reiniciarem el servei **NFS**.
+
+![Edició exports desenvolupament](img/i32.png)
+
+Desmuntarem el recurs compartit i el tornarem a muntar.
+
+![Reinici NFS](img/i33.png)
+
+Ara ja ens deixarà crear un arxiu com a **root**, perquè hem especificat que no s’apliqui el `root_squash`.
+
+![Exportació activa](img/i34.png)
+
+---
+
+## Fase 4: L'Exportació de Desenvolupament
+
+Editem l’arxiu `/etc/exports` per indicar l’exportació del directori **dev_projectes**.
+
+![Muntatge a la màquina client](img/i35.png)
+
+Reiniciem el servei **NFS**.
+
+![Creació arxiu amb dev01](img/i36.png)
+
+Exportem l’arxiu.
+
+![Desmuntatge recurs](img/i37.png)
+
+Muntem l’arxiu a la màquina client.
+
+![Accés només lectura per IP](img/i38.png)
+
+Entrem a l’usuari **dev01** i creem un arxiu amb `touch`.
+
+![Permís denegat admin01](img/i39.png)
+
+Desmuntem el recurs compartit.
+
+![Configuració fstab](img/i40.png)
+
+Editem la IP des de la configuració a `192.168.56.140` i podem comprovar que amb aquesta IP **no podem editar arxius**, però sí veure’ls.
+
+![Permís denegat admin01](img/i41.png)
+
+Iniciem sessió amb l’usuari **admin01** i veiem que ens denega el permís de creació.
+
+![Configuració fstab](img/i42.png)
+
+---
+
+## Fase 5: Muntatge Automàtic amb `/etc/fstab`
+
+Ara configurarem l’arxiu `/etc/fstab` perquè no haguem de muntar el recurs compartit cada vegada que haguem d’entrar.
+
+Afegirem aquestes dues línies:
+
+```fstab
+192.168.56.105:/srv/nfs/admin_tools /mnt/admin_tools nfs defaults 0 0
+192.168.56.105:/srv/nfs/dev_projects  /mnt/dev_projects  nfs defaults 0 0
+```
+
+![Configuració fstab](img/i43.png)
+
+Fem reboot i podem confirmar si està correcte:
+
+```
+ls -l /mnt/
+```
+
+## Conclusió
+
+Això que hem fet no es òptim si ho hem de fer per a molts ordinadors, ja que hauriem de repetir el procés a tots si sería una pèrdua de temps. Una solució adequada seria la d’usar algún servei que fagi la mateixa configuració per a tots el ordinadors a la vegada per optimitzar el temps.
