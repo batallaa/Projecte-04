@@ -9,6 +9,13 @@ A les consultores, la trajectòria professional segueix un patró gairebé unive
 
 ---
 
+## Problema i solució
+
+- **Problema:** L'empresa no tenia pla de recuperació davant desastres, no es podia accedir remotament als servidors i no hi havia serveis de fitxers ni impressió centralitzats.
+- **Solució:** Vam definir una política de backups i imatges del sistema, vam configurar SSH i RDP per a l'accés remot i vam desplegar servidors NFS i CUPS per centralitzar fitxers i impressió.
+
+---
+
 ## 🔥 El dia a dia d’un júnior
 
 De sobte et veus:
